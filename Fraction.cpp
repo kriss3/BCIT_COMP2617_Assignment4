@@ -33,8 +33,17 @@ const Fraction & Fraction::timesEq(const Fraction & op )
 
 const Fraction & Fraction::minusEq(const Fraction & op) 
 {
-	numerator -= op.numerator;
-	denominator -= op.denominator;
+	long long tempDenum = getDenom();
+	long long tempOpDenum = op.denominator;
+	if (denominator == op.denominator)
+	{
+		numerator += op.numerator;
+	}
+	else
+	{
+		denominator *= op.denominator;
+		numerator = (denominator / tempDenum * numerator) - (denominator / tempOpDenum * op.numerator);
+	}
 
 	simplify();
 
@@ -43,6 +52,20 @@ const Fraction & Fraction::minusEq(const Fraction & op)
 
 const Fraction & Fraction::plusEq(const Fraction& op)
 {
+	long long tempDenum = getDenom();
+	long long tempOpDenum = op.denominator;
+	if (denominator == op.denominator)
+	{
+		numerator += op.numerator;
+	}
+	else 
+	{
+		denominator *= op.denominator;
+		numerator = (denominator/tempDenum*numerator) + (denominator/tempOpDenum *op.numerator);
+	}
+
+	simplify();
+
 	return (*this);
 }
 
