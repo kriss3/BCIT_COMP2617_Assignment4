@@ -8,6 +8,7 @@
 #include <iostream>
 using namespace std;
 
+const int NEGATIVE_SWITCHER = -1;
 
 Fraction::Fraction() : numerator(0), denominator(1) { }
 
@@ -47,13 +48,26 @@ const Fraction & Fraction::plusEq(const Fraction& op)
 
 const Fraction & Fraction::divideEq(const Fraction& op)
 {
+	numerator *= op.denominator;
+	denominator *= op.numerator;
+
+	simplify();
+
 	return (*this);
 }
 
 Fraction Fraction::negate(void) const
 {
-	auto a = Fraction();
-	return a;
+	long long tempVal1 = getNum(); 
+	long long tempVal2 = getDenom();
+
+	if (tempVal1 < 0 || tempVal1 > 0)
+	{
+		tempVal1 = -tempVal1;
+	}
+
+
+	return Fraction(tempVal1, tempVal2);
 }
 
 long long Fraction::getNum(void) const 
@@ -68,19 +82,19 @@ long long Fraction::getDenom(void) const
 
 void Fraction::display(void) const
 {
-	cout << numerator << "/" << denominator;
+	cout << getNum() << "/" << getDenom();
 }
 
 void Fraction::simplify(void) 
 {
-	int t = gcd(numerator, denominator);
+	long long result = gcd(numerator, denominator);
 
-	numerator /= t;
-	denominator /= t;
+	numerator /= result;
+	denominator /= result;
 
 	if (denominator < 0)
 	{
-		denominator *= -1;
-		numerator *= -1;
+		denominator *= NEGATIVE_SWITCHER;
+		numerator *= NEGATIVE_SWITCHER;
 	}
 }
