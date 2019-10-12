@@ -9,9 +9,12 @@
 using namespace std;
 
 
-Fraction::Fraction() : numerator(0), denominator(0) { }
+Fraction::Fraction() : numerator(0), denominator(1) { }
 
-Fraction::Fraction(long long a, long long b): numerator(a), denominator(b) {}
+Fraction::Fraction(long long a, long long b): numerator(a), denominator(b)
+{
+	simplify();
+}
 
 //Implementation of the timesEq() member function
 //Performs similar operation as the *= operator on the built-in types
@@ -65,11 +68,19 @@ long long Fraction::getDenom(void) const
 
 void Fraction::display(void) const
 {
-	cout << "Test display()";
+	cout << numerator << "/" << denominator;
 }
 
 void Fraction::simplify(void) 
 {
-	cout << "Test simplify()";
 	int t = gcd(numerator, denominator);
+
+	numerator /= t;
+	denominator /= t;
+
+	if (denominator < 0)
+	{
+		denominator *= -1;
+		numerator *= -1;
+	}
 }
