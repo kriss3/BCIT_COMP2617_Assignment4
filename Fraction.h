@@ -1,8 +1,8 @@
 // Assignment 4 Solution: Fraction.h
 // Declaration of class Fraction.
 // Member functions are defined in Fraction.cpp.
-// Author: Bob Langelaan 
-// Date: Oct 29th, 2013
+// Author: Krzysztof Szczurowski
+// Date: Oct 12th, 2019
 
 #ifndef Fraction_incl
 #define Fraction_incl
