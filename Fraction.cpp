@@ -1,7 +1,8 @@
 // Assignment 4: Fraction.cpp
 // Member-function definitions for class Fraction.
-// Author:  
-// Date: 
+// Author:   Krzysztof Szczurowski
+// ID: A01013054
+// Date: October 12th 2019
 
 #include "Fraction.h"
 #include "GCD.h" // template function for calculating greatest common divisor
@@ -54,6 +55,7 @@ const Fraction & Fraction::plusEq(const Fraction& op)
 {
 	long long tempDenum = getDenom();
 	long long tempOpDenum = op.denominator;
+
 	if (denominator == op.denominator)
 	{
 		numerator += op.numerator;
@@ -81,16 +83,7 @@ const Fraction & Fraction::divideEq(const Fraction& op)
 
 Fraction Fraction::negate(void) const
 {
-	long long tempVal1 = getNum(); 
-	long long tempVal2 = getDenom();
-
-	if (tempVal1 < 0 || tempVal1 > 0)
-	{
-		tempVal1 = -tempVal1;
-	}
-
-
-	return Fraction(tempVal1, tempVal2);
+	return Fraction(-numerator, denominator);
 }
 
 long long Fraction::getNum(void) const 
