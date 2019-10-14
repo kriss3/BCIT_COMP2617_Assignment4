@@ -1,0 +1,56 @@
+The default object is: 0/1
+
+The non-default object is: 1/1024
+
+8/-1024 simplified is: -1/128
+
+The greatest common divisor of 1024 and 32 is: 32
+
+The greatest common divisor of 1024 and 1048576 is: 1024
+
+- Test timesEq()
+A = 2/3
+B = 3/5
+
+A = 2/5
+B = 3/5
+C = 2/5
+
+- Test divideEq()
+A = 2/3
+B = -7/3
+
+A = -2/7
+B = -7/3
+C = -2/7
+
+- Test plusEq()
+A = 5/6
+B = 9/10
+
+A = 26/15
+B = 9/10
+C = 26/15
+
+- Test minusEq()
+A = 2/3
+B = 8/9
+
+A = -2/9
+B = 8/9
+C = -2/9
+
+- Test negateEq()
+A = -2/3
+B = 8/9
+
+A = -2/3
+C = 2/3
+
+B = 8/9
+C = 2/3
+
+B = 8/9
+C = -8/9
+
+Press any key to close this window . . .
